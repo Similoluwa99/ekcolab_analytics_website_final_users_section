@@ -270,102 +270,133 @@
   #landing .user-card:nth-child(n) img { height: 205px; flex-basis: 205px; }
 }
 
+/* =========================================
+   WHO IT IS FOR — DESKTOP LAYOUT CORRECTION
+========================================= */
+
 #landing .users-section {
-  background: #193f35;
+  background: #153f34;
+  color: #fff;
   padding: 64px 0 38px;
 }
+
 #landing .users-section > .container {
   width: min(1308px, 82%);
+  max-width: 1308px;
+  margin-left: auto;
+  margin-right: auto;
 }
-#landing .users-heading {
-  max-width: none;
+
+/* Two-column heading composition */
+#landing .users-section .users-heading {
   display: grid;
   grid-template-columns: 390px minmax(0, 1fr);
   column-gap: 36px;
-  row-gap: 0;
   align-items: center;
-  margin: 0 0 30px;
+  max-width: none;
+  margin: 0 0 32px;
 }
-#landing .users-heading .kicker {
+
+/* Section label */
+#landing .users-section .users-heading .kicker {
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 0 0 32px;
   font-size: 12px;
   font-weight: 400;
-  line-height: 1;
   letter-spacing: .12em;
-  text-transform: uppercase;
+  line-height: 1;
   color: #d2e0d9;
 }
-#landing .users-heading .kicker:before {
+
+#landing .users-section .users-heading .kicker::before {
   content: "";
+  display: inline-block;
   width: 21px;
   height: 1px;
-  flex: 0 0 21px;
   background: #d2e0d9;
+  flex-shrink: 0;
 }
-#landing .users-heading h2 {
+
+/* Main heading */
+#landing .users-section .users-heading h2 {
   max-width: 390px;
   margin: 0;
+  color: #fff;
   font-size: 68px;
   font-weight: 700;
   line-height: 1.03;
   letter-spacing: -.055em;
-  color: #fff;
-  text-align: left;
 }
-#landing .users-heading > p {
-  justify-self: start;
-  align-self: center;
+
+/* Supporting paragraph */
+#landing .users-section .users-heading > p {
   max-width: 500px;
   margin: 0;
-  padding-top: 38px;
+  align-self: center;
+  color: #c7d5ce;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.85;
-  color: #c7d5ce;
-  text-align: left;
 }
-@media (min-width: 701px) and (max-width: 1100px) {
-  #landing .users-section { padding: 60px 0 45px; }
-  #landing .users-section > .container { width: 88%; }
-  #landing .users-heading {
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  #landing .users-section .users-heading {
     grid-template-columns: minmax(0, .95fr) minmax(0, 1fr);
-    column-gap: 32px;
-    row-gap: 0;
+    column-gap: 28px;
   }
-  #landing .users-heading h2 {
-    max-width: 100%;
+
+  #landing .users-section .users-heading h2 {
     font-size: clamp(44px, 5.2vw, 60px);
   }
-  #landing .users-heading > p {
-    max-width: 100%;
-    padding-top: 30px;
+
+  #landing .users-section .users-heading > p {
     font-size: 16px;
+    line-height: 1.75;
   }
 }
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 700px) {
-  #landing .users-section { padding: 52px 0 40px; }
-  #landing .users-section > .container { width: 88%; }
-  #landing .users-heading {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-    row-gap: 25px;
-    margin-bottom: 0;
+  #landing .users-section {
+    padding: 52px 0 40px;
   }
-  #landing .users-heading .kicker {
+
+  #landing .users-section > .container {
+    width: 88%;
+  }
+
+  #landing .users-section .users-heading {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  #landing .users-section .users-heading .kicker {
     margin-bottom: 22px;
     font-size: 11px;
   }
-  #landing .users-heading h2 {
+
+  #landing .users-section .users-heading h2 {
     max-width: 100%;
     font-size: clamp(42px, 10vw, 54px);
     line-height: 1.05;
   }
-  #landing .users-heading > p {
+
+  #landing .users-section .users-heading h2 .desktop-break {
+    display: none;
+  }
+
+  #landing .users-section .users-heading > p {
     max-width: 100%;
-    padding-top: 0;
     font-size: 15px;
     line-height: 1.75;
   }
@@ -457,7 +488,7 @@
     <div class="section-head reveal users-heading">
       <div>
         <div class="kicker">WHO IT IS FOR</div>
-        <h2>A Clear route<br>for every<br>kind of user</h2>
+        <h2>A Clear route<br class="desktop-break">for every<br class="desktop-break">kind of user</h2>
       </div>
       <p>Whether you work directly with communities or make decisions at an institutional level, understanding local conditions is essential.</p>
     </div>
